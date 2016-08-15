@@ -5,7 +5,7 @@
 		</div>
 		<div class="debugger-hooks-excerpt-info">
 			<div class="debugger-hooks-title">
-				<?php echo $type ?> on line <?php echo $line; ?> in hook <span class="debugger-hooks-hook"><?php echo $hook; ?></span>
+				<?php echo $type ?> on line <?php echo $line; ?>
 			</div>
 
 			<div class="debugger-hooks-time">

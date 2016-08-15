@@ -41,23 +41,7 @@ fields:
     type: hooksdebugger
 ```
 
-### 2. Must be loaded first
-
-Kirby Hooks Debugger needs to load before any other plugin that uses hooks in order to work. There are at least two ways to do that:
-
-**Alternative 1 - Rename the plugin**
-
-Rename the folder `kirby-hooks-debugger` to `aaa` and the file `kirby-hooks-debugger.php` to `aaa.php`.
-
-**Alternative 2 - Load the Kirby Hooks Debugger plugin from your plugin**
-
-If you are building a plugin you can add this line to force load the Kirby Hooks Debugger plugin.
-
-```php
-kirby()->plugin('kirby-hooks-debugger');
-```
-
-### 3. Debug needs to be `true`
+### 2. Debug needs to be `true`
 
 You need to set this in `config.php`:
 
@@ -88,38 +72,17 @@ Default is to only show fatal run-time errors.
 c::get('plugin.hooks.debugger.error.types', array(1));
 ```
 
-### Hooks
-
-Hooks to debug. Default is every built in hook.
-
-```php
-c::get('plugin.hooks.debugger.hooks', array(
-  'panel.page.create',
-  'panel.page.update',
-  'panel.page.delete',
-  'panel.page.sort',
-  'panel.page.hide',
-  'panel.page.move',
-  'panel.site.update',
-  'panel.file.upload',
-  'panel.file.replace',
-  'panel.file.rename',
-  'panel.file.update',
-  'panel.file.sort',
-  'panel.file.delete',
-  'panel.user.create',
-  'panel.user.update',
-  'panel.user.delete',
-  'panel.avatar.upload',
-  'panel.avatar.delete'
-));
-```
-
 ## Changelog
 
-0.1
+**0.2**
 
-Initial release
+- Does no longer require to be loaded first.
+- Removed hook name from error message to make it work out of the box.
+- Removed `plugin.hooks.debugger.hooks` option.
+
+**0.1**
+
+- Initial release
 
 ## Requirements
 

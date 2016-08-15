@@ -4,11 +4,11 @@ use C;
 use f;
 
 class Core {
-	function handleErrors($hook) {  
+	function handleErrors() {  
 		$error = error_get_last();
 
 		if( ! is_null( $error ) && $this->validErrorType( $error['type'] ) ) {
-			$this->writeLog( $error, $hook );
+			$this->writeLog( $error );
 		} else {
 			$this->clearLog();
 		}
@@ -17,7 +17,6 @@ class Core {
 	function writeLog( $error, $hook ) {
 		$json = $error;
 		$json['time'] = time();
-		$json['hook'] = $hook;
 		
 		f::write($this->logFile(), json_encode($json));
 	}
@@ -70,8 +69,8 @@ class Core {
 		return c::get( 'plugin.hooks.debugger.logfile', kirby()->roots()->index() . DS . 'hooks-debugger.txt' );
 	}
 
-	function debug($hook) {
-		register_shutdown_function(array($this, 'handleErrors'), $hook);
+	function debug() {
+		register_shutdown_function(array($this, 'handleErrors'));
 	}
 
 	function types($type) {

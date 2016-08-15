@@ -20,7 +20,6 @@ class HooksdebuggerField extends BaseField {
 		$type = $core->types($object->type);
 		$line = $object->line;
 		$time = $object->time;
-		$hook = $object->hook;
 		$message = $object->message;
 		$file = $object->file;
 
@@ -30,7 +29,6 @@ class HooksdebuggerField extends BaseField {
 			'type' => $type,
 			'line' => $line,
 			'time' => $time,
-			'hook' => $hook,
 			'message' => $message,
 			'file' => $file
 		));
